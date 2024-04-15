@@ -159,5 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-complete_constrained_cardiac_temporal_correspondence/complete_constrained_cardiac_temporal_correspondence/src/sample_scan/output
-complete_constrained_cardiac_temporal_correspondence/src/sample_scan/output
+sample_scan/output
