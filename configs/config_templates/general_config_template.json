@@ -1,0 +1,103 @@
+{
+    "general": {
+        "cuda_device": 0,
+        "top_output_dir": "sample_scan/output",
+        "torch_num_threads": 5
+    },
+    "dataset": {
+        "dataset_target_folder_name": "sample_dataset",
+        "template_timestep_name": "01",
+        "template_dicom_path": null,
+        "template_zxy_voxels_mask_arr_path":  null,
+        "template_zxy_voxels_extra_mask_arr_path": null,
+        "template_xyz_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole.npy",
+        "template_xyz_voxels_mask_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole_LV_seg.npy",
+        "template_xyz_voxels_extra_mask_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole_LV_seg.npy",
+        "num_lbos": 120,
+        "mesh_smoothing": true,
+        "convex_hall": false,
+        "voxels_mask_smoothing": {
+            "opening_footprint_radius": 7,
+            "fill_holes_Area_threshold": 1000,
+            "closing_to_opening_ratio": 0.85
+        }
+    },
+    "synthetic_data": {
+        "r1": 0.9,
+        "r2": 0.9,
+        "theta1": 90.0,
+        "theta2": 0.0,
+        "h": 0.91,
+        "zero_outside_mask": true,
+        "blur_around_mask_radious": 1,
+        "theta_distribution_method": "linear"
+    },
+    "zoomout": {
+        "descriptor_type": "WKS",
+        "num_eigenvectors": [
+            3,
+            3
+        ],
+        "num_eigenvectors_for_2nd_try": [
+            10,
+            10
+        ],
+        "mean_l1_flow_th" : 10,
+        "num_preprocess_descriptors": 50,
+        "optinit" : "zeros",
+        "w_descr": 1.0, 
+        "w_lap": 0.01,
+        "num_zoomout_iters": 100,
+        "normalize_meshes_area": true
+    },
+    "constraints_creation": {
+        "k_interpolate_sparse_constraints_nn": 1,
+        "k_smooth_constraints_nn": 1,
+        "confidence_matrix_manipulations_config": {
+            "remove_high_var_corr": false,
+            "axis": 1,
+            "k": 1,
+            "variance_threshold": 0.5E-5,
+            "plot_folder": ""
+        }
+    },
+    "fourD_ct_cost_unrolling": {
+        "backbone": {
+            "load": "DEFAULT",
+            "scale_down_by": 2,
+            "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
+            "early_stopping": {
+                "epochs": 50,
+                "n_epochs_buffer": 50,
+                "metric_for_early_stopping": "shell_volume_error",
+                "max_metric_not_dropping_patience": 2500,
+                "min_n_epochs": 50
+            }
+        },
+        "w_constraints": {
+            "scale_down_by": 2,
+            "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
+            "early_stopping": {
+                "epochs": 50,
+                "n_epochs_buffer": 50,
+                "metric_for_early_stopping": "shell_volume_error",
+                "max_metric_not_dropping_patience": 2500,
+                "min_n_epochs": 50
+            }
+        },
+        "w_segmentation": {
+            "scale_down_by": 2,
+            "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
+            "early_stopping": {
+                "epochs": 50,
+                "n_epochs_buffer": 50,
+                "metric_for_early_stopping": "shell_volume_error",
+                "max_metric_not_dropping_patience": 2500,
+                "min_n_epochs": 50
+            }
+        }
+    }
+}
+
+
+
