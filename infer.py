@@ -32,7 +32,7 @@ if args.cuda_device is not None: # override json cuda device with cmd line cuda 
 top_output_dir = config.general.top_output_dir 
 outputs_path = os.path.join(top_output_dir, f"outputs_{time.strftime('%Y%m%d_%H%M%S')}")
 os.makedirs(outputs_path, exist_ok=True)
-print(f"Output dir: {outputs_path}")
+print(f"Output directory: {outputs_path}")
 dataset_target_path = os.path.join(top_output_dir, config.dataset.dataset_target_folder_name)   
 template_timestep_name = config.dataset.template_timestep_name 
 unlabeled_timestep_name = "28" 
@@ -90,7 +90,7 @@ unlabeled_3dimg_path = dataset.file_paths.xyz_arr[unlabeled_timestep_name]
 unlabeled_mask_path = dataset.file_paths.xyz_voxels_mask_smooth[unlabeled_timestep_name]
 unlabeled_extra_mask_path = dataset.file_paths.xyz_voxels_extra_mask_smooth[unlabeled_timestep_name] 
 
-print("Creating Meshes")
+print("Creating meshes")
 for timestep_name in unlabeled_timestep_name, template_timestep_name:
     print("Creating mesh")
     mesh_creation_args = dt_mng.MeshSmoothingCreationArgs(marching_cubes_step_size=2) #1) 
@@ -145,7 +145,7 @@ if not(valid_flow):
         config=EasyDict(config_zoomout)
         )
 
-print("Converting Correspondence to Constraints")
+print("Converting correspondence to constraints")
 sample_shape = dataset.get_xyz_arr(template_timestep_name).shape
 config.constraints_creation.confidence_matrix_manipulations_config["plot_folder"] = outputs_path
 
@@ -169,7 +169,7 @@ voxelized_normals_path = flow_n_corr_utils.voxelize_and_visualize_3d_vecs(
 
 print("Training without constraints")
 config_backbone = four_d_ct_cost_unrolling.get_default_backbone_config()
-config_backbone["save_iter"] = 10
+config_backbone["save_iter"] = 2
 config_backbone["inference_args"]["inference_flow_median_filter_size"] = False
 config_backbone["epochs"] = config.fourD_ct_cost_unrolling.backbone.early_stopping.epochs 
 config_backbone["valid_type"] = "synthetic+basic"
@@ -196,7 +196,7 @@ backbone_model_output_path = four_d_ct_cost_unrolling.overfit_backbone(
     args=EasyDict(config_backbone)
     )
 
-print("Training with constraints")
+print("Training with constraints loss")
 config_constraints = four_d_ct_cost_unrolling.get_default_w_constraints_config()
 config_constraints["save_iter"] = 2
 config_constraints["inference_args"]["inference_flow_median_filter_size"] = False
@@ -227,7 +227,7 @@ constraints_model_output_path = four_d_ct_cost_unrolling.overfit_w_constraints(
     voxelized_normals_path=voxelized_normals_path,
     args=EasyDict(config_constraints)
     )
-
+print(f"Constraints model output path: {constraints_model_output_path}")
 config_constraints["load"] = four_d_ct_cost_unrolling.get_checkpoints_path(constraints_model_output_path)
 
 infer_constraints_model_output_path = four_d_ct_cost_unrolling.infer_w_constraints(
