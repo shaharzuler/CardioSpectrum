@@ -12,7 +12,7 @@
         "template_zxy_voxels_extra_mask_arr_path": null,
         "template_xyz_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole.npy",
         "template_xyz_voxels_mask_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole_LV_seg.npy",
-        "template_xyz_voxels_extra_mask_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole_LV_seg.npy",
+        "template_xyz_voxels_extra_mask_arr_path": "sample_scan/data/3d_slicer/CT-cardio_systole_myo_seg.npy",
         "num_lbos": 120,
         "mesh_smoothing": true,
         "convex_hall": false,
@@ -67,33 +67,33 @@
             "scale_down_by": 2,
             "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
             "early_stopping": {
-                "epochs": 50,
-                "n_epochs_buffer": 50,
+                "epochs": 2500,
+                "n_epochs_buffer": 150,
                 "metric_for_early_stopping": "shell_volume_error",
                 "max_metric_not_dropping_patience": 2500,
-                "min_n_epochs": 50
+                "min_n_epochs": 2500
             }
         },
         "w_constraints": {
             "scale_down_by": 2,
             "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
             "early_stopping": {
-                "epochs": 50,
-                "n_epochs_buffer": 50,
+                "epochs": 2500,
+                "n_epochs_buffer": 150,
                 "metric_for_early_stopping": "shell_volume_error",
                 "max_metric_not_dropping_patience": 2500,
-                "min_n_epochs": 50
+                "min_n_epochs": 2500
             }
         },
         "w_segmentation": {
             "scale_down_by": 2,
             "w_sm_scales":[0.0,0.0,0.0,0.0,0.0],
             "early_stopping": {
-                "epochs": 50,
-                "n_epochs_buffer": 50,
+                "epochs": 2500,
+                "n_epochs_buffer": 150,
                 "metric_for_early_stopping": "shell_volume_error",
                 "max_metric_not_dropping_patience": 2500,
-                "min_n_epochs": 50
+                "min_n_epochs": 2500
             }
         }
     }
