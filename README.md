@@ -1,4 +1,4 @@
-# CardioSpectrum: Comprehensive Myocardium Motion Analysis with 3D Deep Learning and Geometric Insights
+# CardioSpectrum: Comprehensive Myocardium Motion Analysis with 3D Deep Learning and Geometric Insights (MICCAI 2024)
 
 
 Official implementation of [CardioSpectrum](Link). Visit our [project page](https://shaharzuler.github.io/CardioSpectrumPage/) for more details and updates.
