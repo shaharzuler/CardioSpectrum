@@ -1,7 +1,7 @@
 # CardioSpectrum: Comprehensive Myocardium Motion Analysis with 3D Deep Learning and Geometric Insights
 
 
-Official implementation of [CardioSpectrum](Link).
+Official implementation of [CardioSpectrum](Link). Visit our [project page](https://shaharzuler.github.io/CardioSpectrumPage/) for more details and updates.
 
 This repository contains the complete optimization and evaluation process for CardioSpectrum. Given a 3D array representing a 3D cardio CT scan during systole, along with segmentations for the left ventricle (LV) and the myocardium, the program generates a synthetic diastole frame and optimizes CardioSpectrum.
 
@@ -83,9 +83,13 @@ The provided sample scan is the cardio CT scan originally from [3D Slicer](https
 
 
 ## Citing
-If you find this repository helpful, please cite our publication:
+If you find this repository helpful, please cite our publication.
 
+arXiv preprint:
 ```
-@{TODO
-}
+COMING SOON
+```
+MICCAI 2024 proceedings:
+```
+COMING SOON
 ```
