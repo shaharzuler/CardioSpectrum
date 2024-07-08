@@ -1,7 +1,7 @@
 # CardioSpectrum: Comprehensive Myocardium Motion Analysis with 3D Deep Learning and Geometric Insights (MICCAI 2024)
 
 
-Official implementation of [CardioSpectrum](Link). Visit our [project page](https://shaharzuler.github.io/CardioSpectrumPage/) for more details and updates.
+Official implementation of [CardioSpectrum](https://arxiv.org/abs/2407.03794). Visit our [project page](https://shaharzuler.github.io/CardioSpectrumPage/) for more details and updates.
 
 This repository contains the complete optimization and evaluation process for CardioSpectrum. Given a 3D array representing a 3D cardio CT scan during systole, along with segmentations for the left ventricle (LV) and the myocardium, the program generates a synthetic diastole frame and optimizes CardioSpectrum.
 
