@@ -17,6 +17,7 @@ This repository contains the complete optimization and evaluation process for Ca
 ## Installation:
 
 ```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 pip install git+https://github.com/RobinMagnet/pyFM.git 
 ```
